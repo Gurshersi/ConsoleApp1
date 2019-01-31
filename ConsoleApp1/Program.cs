@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -84,28 +83,23 @@ namespace ConsoleApp39
             Ajax.nextVillage = null;
             Ajax.previousVillage = Toronto;
 
-
-
-            public void LookForAstrilde()
-            {
-                current = Maple;
-                while (current.nextvillage != null)
-                {
-                    if (current.isAstrildeHere)
-                    {
-                        Console.WriteLine("Found Astrilde")
-                    return;
-                    }
-                    else
-                    {
-                        Current = Current.nextVillage;
-                    }
-                }
-            }
-
         }
+        public void LookForAstrilde()
+        {
+            Current = Maple;
+            {
+                if (Current.isAstrildeHere)
+                {
+                    Console.WriteLine("Found Astrilde");
+                    return;
+                }
+                else
+                {
+                    Current = Current.nextVillage;
 
+                }
 
+            }
+        }
     }
-
 }
