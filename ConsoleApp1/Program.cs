@@ -1,77 +1,111 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp39
 {
     class Program
-    { staic void Main(string[] args)}
-    { 
-    countryside Ontario = new countryside();
-}}
-    
- class village
     {
-        public static int numberofvillages = 0;
-        public village nextvillage;
-        public village previousvillage;
-        public string villageName;
+        static void Main(string[] args)
+        {
+            Countryside Ontario = new Countryside();
+            Ontario.run();
+
+        }
+    }
+
+    class LearningExample
+    {
+        public void run()
+        {
+            Village Toronto;
+            Village a;
+            Village b;
+            Toronto = new Village();
+            a = Toronto;
+
+            Toronto = new Village();
+            b = Toronto;
+
+            if (a == b) { Console.WriteLine("same"); }
+            else
+            { Console.WriteLine("different obj refs"); }
+        }
+    }
+    class Village
+    {
+        public static int numberOfVillages = 0;
+        public Village nextVillage;
+        public Village previousVillage;
+        public string VillageName;
         public bool isAstrildeHere = false;
 
-    public village()
-    {
-        village.numberofvillages++;
+        public Village()
+        {
+            Village.numberOfVillages++;
+        }
     }
+
+    class Countryside
+    {
+        public Village Maple;
+        public Village Toronto;
+        public Village Ajax;
+        public Village Head;
+        public Village Tail;
+        public Village Current;
+
+        public void run()
+        {
+            this.MapInitializer();
+            this.LookForAstrilde();
+            Console.WriteLine("Hugi found Astrilde in " + Current.VillageName);
         }
 
-        class countryside
+        public void MapInitializer()
         {
-            public village maple;
-            public village toronto;
-            public village ajax;
-            public village head;
-            public village tail;
-            public village temp;
-    public void run()
-    {
-        this.MapInitializer();
-        this.LookforAstrilde();
-    }
+            Ajax = new Village();
+            Toronto = new Village();
+            Maple = new Village();
 
-            public void MapInitializer()
+            Maple.VillageName = "Maple";
+            Maple.previousVillage = null;
+            Maple.nextVillage = Toronto;
+            Ajax.isAstrildeHere = true;
+
+            Toronto.previousVillage = Maple;
+            Toronto.VillageName = "Toronto";
+            Toronto.nextVillage = Ajax;
+
+            Ajax.VillageName = "Ajax";
+            Ajax.nextVillage = null;
+            Ajax.previousVillage = Toronto;
+
+
+
+            public void LookForAstrilde()
             {
-                maple = new village();
-                maple.villageName = "maple";
-                maple.nextvillage = toronto;
-                maple.previousvillage = null;
-        maple.isAstrildeHere = true;
-                toronto = new village();
-        toronto.previousvillage = maple;
-        toronto.villageName = "toronto";
-                toronto.nextvillage = ajax;
-                ajax = new village();
-                ajax.villageName = "ajax";
-                ajax.nextvillage = null;
-                ajax.previousvillage = toronto;
-                //ajax.isAstrildeHere = true;
-
+                current = Maple;
+                while (current.nextvillage != null)
+                {
+                    if (current.isAstrildeHere)
+                    {
+                        Console.WriteLine("Found Astrilde")
+                    return;
+                    }
+                    else
+                    {
+                        Current = Current.nextVillage;
+                    }
+                }
             }
 
-            public void LookforAstrilde()
-
-            { head = maple;
-        if (head.isAstrildeHere)
-        { Console.WriteLine("Yeah ! Astrlide is in" + head.villageName);
         }
-        //while (true)
-        //{ 
-    
-    }//
+
 
     }
-        
-        }
-    
+
 }
