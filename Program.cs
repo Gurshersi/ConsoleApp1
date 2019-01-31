@@ -96,7 +96,7 @@ namespace ConsoleApp39
                 else
                 {
                     Current = Current.nextVillage;
-
+                    Console.ReadLine();
                 }
 
             }
